@@ -1,0 +1,28 @@
+{
+  "name": "promise-repeat-polyfill",
+  "version": "1.0.0",
+  "description": "Lightweight Promise polyfill for a sequential repeat method",
+  "main": "main.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/battesonb/promise-repeat-polyfill.git"
+  },
+  "keywords": [
+    "Promise",
+    "repeat",
+    "sequence",
+    "sequential"
+  ],
+  "author": "Byron Batteson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/battesonb/promise-repeat-polyfill/issues"
+  },
+  "homepage": "https://github.com/battesonb/promise-repeat-polyfill#readme",
+  "devDependencies": {
+    "mocha": "^5.0.0"
+  }
+}
