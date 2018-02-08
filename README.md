@@ -36,7 +36,7 @@ const callback = i => {
   return new Promise((resolve, reject) => {
     fetch(`https://example/foo/${i}`)
       .then(res => {
-        resolve(res.json());
+        resolve(res.json() ? res.json() : undefined);
       })
       .catch(err => reject(err));	
   });
