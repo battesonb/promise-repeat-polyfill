@@ -1,7 +1,7 @@
 function appendRepeat(Promise) {
   Promise.repeat = function(promise) {
-		let iteration = 1;
-		let chainedPromise = new Promise((resolve, reject) => resolve(promise(iteration++)));
+		let iteration = 0;
+		let chainedPromise = promise(iteration++);
 		let results = [];
 
 		let handleIteration = result => {
