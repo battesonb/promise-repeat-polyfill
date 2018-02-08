@@ -1,14 +1,14 @@
 function appendRepeat(Promise) {
-  Promise.repeat = function(promise) {
+  Promise.repeat = function(callback) {
 		let iteration = 0;
-		let chainedPromise = promise(iteration++);
+		let chainedPromise = callback(iteration++);
 		let results = [];
 
 		let handleIteration = result => {
 			if (result == undefined) return results;
 
 			results.push(result);
-			return promise(iteration++).then(handleIteration);
+			return callback(iteration++).then(handleIteration);
 		}
 	
 		return chainedPromise.then(handleIteration);
