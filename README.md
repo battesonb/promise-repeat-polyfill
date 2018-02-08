@@ -17,9 +17,9 @@ I know this is not a true polyfill, but this is a method I would love to see add
 The latest API can be found on the [GitHub Wiki](https://github.com/battesonb/promise-repeat-polyfill/wiki/API).
 
 ## Usage
-Simply import the library, that's it! As long as a Promise is found in the global namespace, the method as added to the Promise class.
+Simply import the library, that's it! As long as a Promise is found in the global namespace, the method is added to the Promise class.
 
-`import 'promise-repeat-polyfill'`;
+`import 'promise-repeat-polyfill';`
 
 or
 
