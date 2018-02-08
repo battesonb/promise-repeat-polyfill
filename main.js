@@ -8,7 +8,7 @@ function appendRepeat(Promise) {
 			if (result == undefined) return results;
 
 			results.push(result);
-			chainedPromise.then(promise(iteration++)).then(handleIteration);
+			return chainedPromise.then(promise(iteration++)).then(handleIteration);
 		}
 	
 		return chainedPromise.then(handleIteration);
