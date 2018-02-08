@@ -1,24 +1,21 @@
 function appendRepeat(Promise) {
-  Promise.repeat = function(callback) {
-    return new Promise((resolve, reject) => {
-			let iteration = 0;
-	  	const responses = [];
-      const recurse = () => {
-        callback(iteration++)
-          .then(response => {
-            if(response) {
-			  			responses.push(response);
-              return recurse(callback);
-            }
-        		resolve(responses); 
-          })
-          .catch(err => reject(err));
-      };
-      return recurse();
-    });
+  Promise.repeat = function(promise) {
+		let iteration = 1;
+		let chainedPromise = new Promise((resolve, reject) => resolve(iteration++);
+		let results = [];
+
+		let handleIteration = result => {
+			if (result == undefined) return results;
+
+			results.push(result);
+			iteration++;
+			chainedPromise.then(handleIteration);
+		}
+	
+		return chainedPromise.then(handleIteration);
   }
 }
 
-if(Promise) {
+if (Promise) {
   appendRepeat(Promise);
 }
