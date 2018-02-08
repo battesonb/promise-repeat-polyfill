@@ -23,7 +23,7 @@ Simply import the library, that's it! As long as a Promise is found in the globa
 
 or
 
-`require('promise-repeat-polyfill');
+`require('promise-repeat-polyfill');`
 
 
 ## Example
@@ -32,8 +32,14 @@ Not the most practical example, but it demonstrates wanting a "bulk" of data div
 ```
 require('promise-repeat-polyfill');
 
-const callback = (i) => {
-  return fetch(`https://example/foo/${i}`);	
+const callback = i => {
+  return new Promise((resolve, reject) => {
+    fetch(`https://example/foo/${i}`)
+      .then(res => {
+        resolve(res.json());
+      })
+      .catch(err => reject(err));	
+  });
 };
 
 Promise.repeat(callback)
