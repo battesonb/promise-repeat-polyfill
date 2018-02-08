@@ -5,7 +5,7 @@ function appendRepeat(Promise) {
 		let results = [];
 
 		let handleIteration = result => {
-			if (result == undefined) return results;
+			if (result == undefined || result == null) return results;
 
 			results.push(result);
 			return promise(iteration++).then(handleIteration);
