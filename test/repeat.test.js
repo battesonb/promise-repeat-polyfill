@@ -30,7 +30,7 @@ function getCallback(count, error) {
 /**
  * Create a callback which fails if the same callback is called while it
  * is running.
- * @param {number} count - The number of promises to return befor resolving.
+ * @param {number} count - The number of promises to return before resolving.
  * @returns {Promise}
  */
 function getRunningCallback(count) {
