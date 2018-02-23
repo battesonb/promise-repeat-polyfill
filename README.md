@@ -38,7 +38,7 @@ const callback = i => {
       .then(res => res.json())
       .then(json => {
         if(Object.keys(json).length > 0) {
-          resolve(res.json());
+          resolve(json);
         } else {
           resolve();
         }
