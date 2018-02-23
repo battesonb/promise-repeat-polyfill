@@ -14,7 +14,7 @@ I know this is not a true polyfill, but this is a method I would love to see add
 * `npm test` to run tests
 
 ## API
-The latest API can be found on the [GitHub Wiki](https://github.com/battesonb/promise-repeat-polyfill/wiki/API).
+The latest API can be found over [here](API.md).
 
 ## Usage
 Simply import the library, that's it! As long as a Promise is found in the global namespace, the method is added to the Promise class.
@@ -35,8 +35,13 @@ require('promise-repeat-polyfill');
 const callback = i => {
   return new Promise((resolve, reject) => {
     fetch(`https://example/foo/${i}`)
-      .then(res => {
-        resolve(res.json() ? res.json() : undefined);
+      .then(res => res.json())
+      .then(json => {
+        if(Object.keys(json).length > 0) {
+          resolve(res.json());
+        } else {
+          resolve();
+        }
       })
       .catch(err => reject(err));	
   });
